@@ -1,5 +1,5 @@
-module Brianp
-  module Acts #:nodoc:
+module DataMapper
+  module Is #:nodoc:
     module Voteable #:nodoc:
 
       def self.included(base)
@@ -7,11 +7,11 @@ module Brianp
       end
 
       module ClassMethods
-        def can_be_voted_for
+        def is_voteable
           has_many :votes, :as => :voteable, :dependent => :nullify
           
-          include Brianp::Acts::Voteable::InstanceMethods
-          extend Brianp::Acts::Voteable::SingletonMethods
+          include DataMapper::Is::Voteable::InstanceMethods
+          extend DataMapper::Is::Voteable::SingletonMethods
         end
       end
 
