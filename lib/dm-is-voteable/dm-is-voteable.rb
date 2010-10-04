@@ -1,5 +1,3 @@
-require 'dm-core'
-
 require 'dm-is-voteable/is/voteable'
 require 'dm-is-voteable/is/models/vote'
 
