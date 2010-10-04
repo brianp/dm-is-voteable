@@ -2,7 +2,7 @@ module DataMapper
   module Is #:nodoc:
     module Voteable #:nodoc:
 
-      def is_voteable
+      def is_voteable(options = {}, &block)
         has_many :votes, :as => :voteable, :dependent => :nullify
         
         include DataMapper::Is::Voteable::InstanceMethods

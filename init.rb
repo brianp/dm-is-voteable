@@ -1,0 +1,1 @@
+require 'dm-is-voteable'
