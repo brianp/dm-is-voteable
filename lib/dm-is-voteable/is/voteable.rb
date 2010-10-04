@@ -3,7 +3,7 @@ module DataMapper
     module Voteable #:nodoc:
 
       def is_voteable(options = {}, &block)
-        has_many :votes, :as => :voteable, :dependent => :nullify
+        has n, :votes, :as => :voteable, :child_key => [ :voteable_id ]
         
         include DataMapper::Is::Voteable::InstanceMethods
         extend DataMapper::Is::Voteable::SingletonMethods
@@ -14,8 +14,12 @@ module DataMapper
       end
 
       module InstanceMethods
-        # Add instance methods here
+        def vote(voter)
+          vote = Vote.new(:voteable_id => self.id, :voter => voter)
+          vote.save
+        end
       end
+      
     end
   end
 end
