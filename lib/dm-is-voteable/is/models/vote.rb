@@ -12,7 +12,7 @@ class Vote
   property :updated_at, DateTime
   property :updated_on, Date
   
-  has 1, :voteable, :voteable_id
+  # has 1, :voteable, :voteable_id
 
   # Uncomment this to limit users to a single vote on each item. 
   validates_uniqueness_of :voter
