@@ -15,12 +15,18 @@ module DataMapper
 
       module InstanceMethods
         def vote(voter)
-          vote = Vote.new(:voteable_id => self.id, :voter => voter)
+          # puts "HERE:"
+          # puts env.inspect
+          vote = Vote.new(:voteable_id => self.id, :voteable_type => self.class, :voter => voter)
           vote.save
         end
         
-        def tally_votes
-          self.votes.count
+        # def tally_votes(options = {})
+        #   self.votes.count
+        # end
+        
+        def tally_votes(options = {})
+          count = Vote.count(:conditions => ["voteable_id = ?", self.id])
         end
       end
       
