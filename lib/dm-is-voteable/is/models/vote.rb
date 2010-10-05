@@ -4,7 +4,7 @@ class Vote
 
   property :id, Serial
 
-  property :voter, IPAddress, :unique => true# , :required => true
+  property :voter, IPAddress
   property :voteable_id, Integer, :required => true
   
   property :created_at, DateTime
@@ -12,7 +12,7 @@ class Vote
   property :updated_at, DateTime
   property :updated_on, Date
   
-  # has 1, :voteable, :voteable_id
+  # belongs_to :voteable, :voteable_id
 
   # Uncomment this to limit users to a single vote on each item. 
   validates_uniqueness_of :voter

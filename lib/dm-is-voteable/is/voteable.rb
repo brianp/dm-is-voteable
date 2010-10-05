@@ -18,6 +18,10 @@ module DataMapper
           vote = Vote.new(:voteable_id => self.id, :voter => voter)
           vote.save
         end
+        
+        def tally_votes
+          self.votes.count
+        end
       end
       
     end
