@@ -26,7 +26,7 @@ module DataMapper
         # end
         
         def tally_votes(options = {})
-          count = Vote.count(:conditions => ["voteable_id = ?", self.id])
+          count = Vote.count(:voteable_id => self.id)
         end
       end
       
