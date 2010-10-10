@@ -16,7 +16,7 @@ class Vote
   validates_with_method :no_vote_in_3_days
   
   def no_vote_in_3_days 
-   Vote.count(:voter => voter, :created_on.gt => 2.days.ago) == 0
+   Vote.count(:voter => voter, :created_on.gt => 4.days.ago) == 0
   end
   
   # belongs_to :voteable, :voteable_id
