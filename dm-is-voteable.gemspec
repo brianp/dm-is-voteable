@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dm-is-voteable}
-  s.version = "0.0.2"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brian Pearce"]
-  s.date = %q{2010-10-10}
+  s.date = %q{2010-10-12}
   s.description = %q{Makes a model voteable}
   s.email = %q{brian.o.pearce@gmail.com}
   s.extra_rdoc_files = ["CHANGELOG", "README.rdoc", "lib/dm-is-voteable.rb", "lib/dm-is-voteable/is/models/vote.rb", "lib/dm-is-voteable/is/voteable.rb"]
