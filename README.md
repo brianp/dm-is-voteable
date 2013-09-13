@@ -1,27 +1,26 @@
-= dm-is-voteable
+# dm-is-voteable
 
 A DataMapper compatible "anonymous" voting plugin. Can track votes by IP  so a user may only submit a single vote.
 
-< Rails 3 not tested.
+## Requirments
+* Rails 3+
+* Ruby 1.8+
 
-= Installation
+## Installation
 To install as a gem add the following line to your gem file.
-gem "dm-is-voteable" 
+`gem 'dm-is-voteable'`
 
-Then run:
-$ bundle install
+Then:
+`bundle install`
 
 And build the required DB tables:
-$ rake db:auto_update
+`rake db:auto_update`
  
-= Example
+## Example
 
-Add:
+Add `is :voteable` To any model and gain the power of the vote method.
 
-is :voteable
-
-To any model and gain the power of the vote method.
-
+```ruby
 class Movie
   include DataMapper::Resource
 
@@ -31,13 +30,13 @@ class Movie
   
   property :title, String, :required => true
 end
+```
 
-Vote for the Model by calling:
-Model.vote
+Vote for the Model by calling `model.vote`
 
 Allow only a single vote per user by sending the request IP with the vote:
 
+```ruby
 user_ip = request.env['REMOTE_ADDR']
-Model.vote(user_ip)
-
-Copyright (c) 2010 Brian Pearce, released under the MIT license
+model.vote(user_ip)
+```
