@@ -13,8 +13,12 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_dependency 'dm-core',        '~> 1.2.0'
+  s.add_dependency 'dm-timestamps',  '~> 1.2.0'
+  s.add_dependency 'dm-validations', '~> 1.2.0'
+  s.add_dependency 'dm-types',       '~> 1.2.0'
 
   s.add_development_dependency 'minitest'
 end
