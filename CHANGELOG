@@ -1,0 +1,15 @@
+0.0.2 (September 14, 2013)
+
+* Dropped support for 1.8.7.
+* Wrote specs for everything.
+* Dropped dm-is plugin style.
+* Refactored code to be more readable.
+* Allow user tracking by any identifier instead of just an ip.
+* Api changes:
+	* tally_votes is now votes_count.
+	* is_voteable option between_x_days is now time_between_votes.
+	* time_between_votes now accepts a proc.
+
+0.0.1 (October 4, 2010)
+
+* Wrote some code.
