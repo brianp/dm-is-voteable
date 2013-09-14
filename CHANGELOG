@@ -9,6 +9,7 @@
 	* tally_votes is now votes_count.
 	* is_voteable option between_x_days is now time_between_votes.
 	* time_between_votes now accepts a proc.
+	* Vote#ip_address is now Vote#identifier.
 
 0.0.1 (October 4, 2010)
 
