@@ -11,19 +11,13 @@ class Voteable::Vote
   property :created_on, Date,     :lazy => true
   property :updated_at, DateTime, :lazy => true
   property :updated_on, Date,     :lazy => true
+  validates_with_method :time_between_votes
 
-  #validates_with_method :no_vote_in_x_days
   #
   def voteable
     constantize(voteable_type).get(voteable_id)
   end
 
-  def no_vote_in_x_days
-    if Vote.respond_to?('x_days')
-      return Vote.count(:voter => voter, :created_on.gt => Vote.x_days.days.ago) == 0
-    else
-      return true
-    end
   end
 
   private
@@ -38,4 +32,15 @@ class Voteable::Vote
     end
     constant
   end
+
+  def time_between_votes
+    if timed_voting?
+      time = voteable_class.time_between_votes.call
+      result = self.class.all(voter: voter, :created_on.gt => time).count == 0
+      result ? true : [result, 'You have already voted']
+    else
+      true
+    end
+  end
+
 end
