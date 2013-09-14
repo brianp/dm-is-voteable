@@ -1,4 +1,8 @@
 # dm-is-voteable
+[![Build
+Status](https://travis-ci.org/brianp/dm-is-voteable.png?branch=master)](https://travis-ci.org/brianp/dm-is-voteable)
+[![Code
+Climate](https://codeclimate.com/github/brianp/dm-is-voteable.png)](https://codeclimate.com/github/brianp/dm-is-voteable)
 
 A DataMapper compatible voting gem. Can track votes by identifier so a user may only submit a single vote.
 
