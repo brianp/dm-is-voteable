@@ -3,14 +3,15 @@ class Voteable::Vote
 
   property :id, Serial
 
-  property :voteable_id,   Integer, :required => true
-  property :voteable_type, String,  :required => true
+  property :voteable_id,   Integer, required: true
+  property :voteable_type, String,  required: true
   property :voter,         String
 
-  property :created_at, DateTime, :lazy => true
-  property :created_on, Date,     :lazy => true
-  property :updated_at, DateTime, :lazy => true
-  property :updated_on, Date,     :lazy => true
+  property :created_at, DateTime, lazy: true
+  property :created_on, Date,     lazy: true
+  property :updated_at, DateTime, lazy: true
+  property :updated_on, Date,     lazy: true
+
   validates_with_method :time_between_votes
 
   def voteable
