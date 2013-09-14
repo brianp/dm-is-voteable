@@ -1,5 +1,5 @@
-require 'dm-is-voteable/is/voteable'
-require 'dm-is-voteable/is/models/vote'
+require 'voteable/version'
+require 'voteable/vote'
+require 'voteable/voteable'
 
-DataMapper::Model.append_extensions DataMapper::Is::Voteable
-# RAILS_DEFAULT_LOGGER.info "** vote_on: initialized properly."
+DataMapper::Model.append_extensions Voteable
