@@ -1,11 +1,13 @@
 module Voteable
-  def is_voteable(options = {}, &block)
-    has n, :votes, 'Voteable::Vote', :as => :voteable, :child_key => [ :voteable_id ]
+  def is_voteable(options = {})
+    has n, :votes, 'Voteable::Vote', as: :voteable, child_key: [ :voteable_id ]
 
-    #if !options[:every_x_days].nil?
-    #  Vote.instance_eval { @@x_days = 0; def x_days; @@x_days; end; def x_days=(value); @@x_days = (value); end }
-    #  Vote.x_days = options[:every_x_days]
-    #end
+    if (!options[:time_between_votes].nil? && options[:time_between_votes].class == Proc)
+      class << self
+        attr_accessor :time_between_votes
+      end
+      self.time_between_votes = options[:time_between_votes]
+    end
 
     include Voteable::InstanceMethods
   end
