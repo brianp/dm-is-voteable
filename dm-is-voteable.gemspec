@@ -18,7 +18,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'dm-core',        '~> 1.2.0'
   s.add_dependency 'dm-timestamps',  '~> 1.2.0'
   s.add_dependency 'dm-validations', '~> 1.2.0'
-  s.add_dependency 'dm-types',       '~> 1.2.0'
-
-  s.add_development_dependency 'minitest'
 end
