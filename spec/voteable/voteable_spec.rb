@@ -20,7 +20,7 @@ describe Voteable do
     subject.vote.class.must_equal Voteable::Vote
   end
 
-  it 'accepts an identifier as a votes' do
+  it 'accepts an identifier as a voter' do
     subject.vote('Brian')
     Voteable::Vote.first.voter.must_equal 'Brian'
   end
@@ -28,6 +28,14 @@ describe Voteable do
   it 'tallies the votes' do
     4.times { subject.vote }
     subject.votes_count.must_equal 4
+  end
+
+  it 'create a class instance variable' do
+    TestModel.respond_to?(:time_between_votes).must_equal true
+  end
+
+  it 'sets a proc on TestModel' do
+    TestModel.time_between_votes.class.must_equal Proc
   end
 
 end
