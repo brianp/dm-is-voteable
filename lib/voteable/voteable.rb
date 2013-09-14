@@ -13,8 +13,8 @@ module Voteable
   end
 
   module InstanceMethods
-    def vote(voter = nil)
-      Voteable::Vote.create(voteable_id: self.id, voteable_type: self.class, voter: voter)
+    def vote(identifier = nil)
+      Voteable::Vote.create(voteable_id: self.id, voteable_type: self.class, identifier: identifier)
     end
 
     def votes_count

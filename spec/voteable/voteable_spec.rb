@@ -22,7 +22,7 @@ describe Voteable do
 
   it 'accepts an identifier as a voter' do
     subject.vote('Brian')
-    Voteable::Vote.first.voter.must_equal 'Brian'
+    Voteable::Vote.first.identifier.must_equal 'Brian'
   end
 
   it 'tallies the votes' do
