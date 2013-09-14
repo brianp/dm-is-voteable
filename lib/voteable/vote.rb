@@ -13,14 +13,19 @@ class Voteable::Vote
   property :updated_on, Date,     :lazy => true
   validates_with_method :time_between_votes
 
-  #
   def voteable
-    constantize(voteable_type).get(voteable_id)
-  end
-
+    voteable_class.get(voteable_id)
   end
 
   private
+
+  def timed_voting?
+    voteable_class.respond_to?(:time_between_votes) && !voter.nil?
+  end
+
+  def voteable_class
+    constantize(voteable_type)
+  end
 
   def constantize(camel_cased_word)
     names = camel_cased_word.split('::')
