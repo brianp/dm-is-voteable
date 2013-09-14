@@ -12,7 +12,7 @@ module Voteable
 
   module InstanceMethods
     def vote(voter = nil)
-      Vote.create(:voteable_id => self.id, :voteable_type => self.class, :voter => voter)
+      Voteable::Vote.create(voteable_id: self.id, voteable_type: self.class, voter: voter)
     end
 
     def votes_count
