@@ -5,6 +5,7 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/setup'
+require 'date'
 
 DataMapper.setup(:default, { :adapter => :in_memory })
 
@@ -15,7 +16,7 @@ class TestModel
 
   property :id, Serial
 
-  is_voteable
+  is_voteable(time_between_votes: ->{ Date.today - 3 })
 end
 
 DataMapper.finalize
