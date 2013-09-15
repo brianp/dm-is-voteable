@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dm-is-voteable (0.0.2)
+    dm-is-voteable (0.0.6)
       dm-core (~> 1.2.0)
       dm-timestamps (~> 1.2.0)
       dm-validations (~> 1.2.0)
