@@ -31,11 +31,11 @@ describe Voteable do
   end
 
   it 'create a class instance variable' do
-    TestModel.respond_to?(:time_between_votes).must_equal true
+    TestModel.respond_to?(:last_vote_time).must_equal true
   end
 
   it 'sets a proc on TestModel' do
-    TestModel.time_between_votes.class.must_equal Proc
+    TestModel.last_vote_time.class.must_equal Proc
   end
 
 end

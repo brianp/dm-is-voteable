@@ -16,7 +16,7 @@ class TestModel
 
   property :id, Serial
 
-  is_voteable(time_between_votes: ->{ Date.today - 3 })
+  is_voteable(last_vote_time: ->{ Date.today - 3 })
 end
 
 DataMapper.finalize

@@ -19,10 +19,10 @@ describe Voteable::Vote do
     @model.vote('Brian').saved?.must_equal false
   end
 
-  it 'errors include time_between_votes' do
+  it 'errors include last_vote_time' do
     subject.saved?.must_equal true
     @model.vote('Brian')
-    @model.vote('Brian').errors.keys.must_include :time_between_votes
+    @model.vote('Brian').errors.keys.must_include :last_vote_time
   end
 
   it 'errors with message' do

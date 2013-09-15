@@ -12,7 +12,7 @@ class Voteable::Vote
   property :updated_at, DateTime, lazy: true
   property :updated_on, Date,     lazy: true
 
-  validates_with_method :time_between_votes
+  validates_with_method :last_vote_time
 
   def voteable
     voteable_class.get(voteable_id)
@@ -21,7 +21,7 @@ class Voteable::Vote
   private
 
   def timed_voting?
-    voteable_class.respond_to?(:time_between_votes) && !identifier.nil?
+    voteable_class.respond_to?(:last_vote_time) && !identifier.nil?
   end
 
   def voteable_class
@@ -39,9 +39,9 @@ class Voteable::Vote
     constant
   end
 
-  def time_between_votes
+  def last_vote_time
     if timed_voting?
-      time = voteable_class.time_between_votes.call
+      time = voteable_class.last_vote_time.call
       result = self.class.all(identifier: identifier, :created_on.gt => time).count == 0
       result ? true : [result, 'You have already voted']
     else

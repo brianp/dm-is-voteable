@@ -2,11 +2,11 @@ module Voteable
   def is_voteable(options = {})
     has n, :votes, 'Voteable::Vote', as: :voteable, child_key: [ :voteable_id ]
 
-    if (!options[:time_between_votes].nil? && options[:time_between_votes].class == Proc)
+    if (!options[:last_vote_time].nil? && options[:last_vote_time].class == Proc)
       class << self
-        attr_accessor :time_between_votes
+        attr_accessor :last_vote_time
       end
-      self.time_between_votes = options[:time_between_votes]
+      self.last_vote_time = options[:last_vote_time]
     end
 
     include Voteable::InstanceMethods
