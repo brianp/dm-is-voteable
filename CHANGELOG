@@ -1,5 +1,8 @@
-0.0.2 (September 14, 2013)
+0.0.6 (September 15, 2013)
+* Found out I had released v0.0.4 so bumping version higher than that.
+* Changed time_between_votes to last_vote_time
 
+0.0.5 (September 14, 2013)
 * Dropped support for 1.8.7.
 * Wrote specs for everything.
 * Dropped dm-is plugin style.
@@ -11,6 +14,14 @@
 	* time_between_votes now accepts a proc.
 	* Vote#ip_address is now Vote#identifier.
 
-0.0.1 (October 4, 2010)
+0.0.4 (October 12, 2010)
+* Pushed version 0.0.4?
 
+0.0.3 (October 10, 2010)
+* Pushed version 0.0.3?
+
+0.0.2 (October 10, 2010)
+* Pushed version 0.0.2?
+
+0.0.1 (October 4, 2010)
 * Wrote some code.
