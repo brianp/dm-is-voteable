@@ -47,7 +47,7 @@ class Movie
 
   property :id, Serial
   
-  is_voteable(time_between_votes: ->{ 3.days.ago })
+  is_voteable(last_vote_time: ->{ 3.days.ago })
   
   property :title, String, required: true
 end
