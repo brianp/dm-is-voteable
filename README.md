@@ -28,10 +28,9 @@ class Movie
   include DataMapper::Resource
 
   property :id, Serial
+  property :title, String, required: true
   
   is_voteable
-  
-  property :title, String, required: true
 end
 ```
 
@@ -46,10 +45,9 @@ class Movie
   include DataMapper::Resource
 
   property :id, Serial
+  property :title, String, required: true
   
   is_voteable(last_vote_time: ->{ 3.days.ago })
-  
-  property :title, String, required: true
 end
 ```
 
